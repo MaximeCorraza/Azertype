@@ -1,4 +1,7 @@
-const listeMot = ["Chachalot", "Pétunia", "Serviette"]
-let score = 0
+let mot = prompt("Ecrivez Oui")
 
-let motUtilisateur = prompt ("Entrez le mot : " + listeMot[0])
+while (mot !== "Oui") {
+    mot = prompt("Ecrivez Oui")
+}
+
+console.log("Bravo")
