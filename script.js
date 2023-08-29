@@ -1,12 +1,4 @@
-const motApplication = "Bonjour"
-let motUtilisateur = prompt("Entrez le mot : " + motApplication)
+const listeMot = ["Chachalot", "Pétunia", "Serviette"]
+let score = 0
 
-switch (motUtilisateur) {
-    case motApplication:
-        console.log("Bravo !")
-        break;
-    case "Putain":
-        console.log("Surveillez vos paroles !")
-    default:
-        console.log("Vous avez fait une erreur !")
-}
+let motUtilisateur = prompt ("Entrez le mot : " + listeMot[0])
