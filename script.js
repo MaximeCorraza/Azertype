@@ -9,14 +9,15 @@ function afficherResultat(score, nbMotsProposes) {
 function choisirPhrasesOuMots() {
     let choix = prompt('Voulez-vous jouer avec les mots (entrez "mots") ou les phrases (entrez "phrases"?')
     while (choix !== 'mots' && choix !== 'phrases') {
-        choix = prompt('Vous devez choisir entre "mots" et "phrasess"')
+        choix = prompt('Vous devez choisir entre "mots" et "phrases"')
     }
     return choix
 }
 
 function lancerBoucleDeJeu(listePropositions) {
+    let score = 0
     for (let i = 0; i < listePropositions.length; i++) {
-        motUtilisateur = prompt('Entrez le mot : ' + listePropositions[i])
+        let motUtilisateur = prompt('Entrez le mot : ' + listePropositions[i])
         if (motUtilisateur === listePropositions[i]) {
             score++
         }
@@ -25,15 +26,15 @@ function lancerBoucleDeJeu(listePropositions) {
 }
 
 function lancerJeu() {
-    let choix = choisirPhrasesOuMots
+    let choix = choisirPhrasesOuMots()
     let score = 0
     let nbMotsProposes = 0
 
     if (choix === 'mots') {
-        lancerBoucleDeJeu(listeMots)
+        score = lancerBoucleDeJeu(listeMots)
         nbMotsProposes = listeMots.length
     } else {
-        lancerBoucleDeJeu(listePhrases)
+        score = lancerBoucleDeJeu(listePhrases)
         nbMotsProposes = listePhrases.length
     }
     afficherResultat(score, nbMotsProposes)
