@@ -1,28 +1,42 @@
-// Déclaration du tableau contenant la liste des mots proposés à l'utilisateur
-const listeMots = ['Cachalot', 'Pétunia', 'Serviette']
-const listePhrases = ['Pas de panique !', 'Je suis la', 'Tu vas bien ?']
+const listeMots = ['Bonjour', 'Salut', 'Hello']
+const listePhrases = ['Je suis le boss', 'Je joue à la pétanque', 'Bien joué']
 
-let score = 0
 
-let choix = prompt("Choississez : Mots ou Phrases")
-while (choix !== "Mots" && choix !== "Phrases"){
-    choix = prompt("Choississez : Mots ou Phrases")
+function afficherResultat(score, nbMotsProposes) {
+    console.log('Votre score est de ' + score + ' sur ' + nbMotsProposes)
 }
 
-if (choix === "Mots") {
-    for (let i = 0; i < listeMots.length; i++) {
-        let motUtilisateur = prompt('Entrez le mot : ' + listeMots[i])
-        if (motUtilisateur === listeMots[i]) {
-            score++
-        }
-        console.log("Votre score est de " + score + " sur " + listeMots.length)
+function choisirPhrasesOuMots() {
+    let choix = prompt('Voulez-vous jouer avec les mots (entrez "mots") ou les phrases (entrez "phrases"?')
+    while (choix !== 'mots' && choix !== 'phrases') {
+        choix = prompt('Vous devez choisir entre "mots" et "phrasess"')
     }
-} else {
-    for (let i = 0; i < listePhrases.length; i++) {
-        let motUtilisateur = prompt('Entrez le mot : ' + listePhrases[i])
-        if (motUtilisateur === listePhrases[i]) {
+    return choix
+}
+
+function lancerBoucleDeJeu(listePropositions) {
+    for (let i = 0; i < listePropositions.length; i++) {
+        motUtilisateur = prompt('Entrez le mot : ' + listePropositions[i])
+        if (motUtilisateur === listePropositions[i]) {
             score++
         }
     }
-    console.log("Votre score est de " + score + " sur " + listePhrases.length)
+    return score
 }
+
+function lancerJeu() {
+    let choix = choisirPhrasesOuMots
+    let score = 0
+    let nbMotsProposes = 0
+
+    if (choix === 'mots') {
+        lancerBoucleDeJeu(listeMots)
+        nbMotsProposes = listeMots.length
+    } else {
+        lancerBoucleDeJeu(listePhrases)
+        nbMotsProposes = listePhrases.length
+    }
+    afficherResultat(score, nbMotsProposes)
+}
+
+lancerJeu()
