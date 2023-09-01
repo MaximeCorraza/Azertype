@@ -1,7 +1,3 @@
-const listeMots = ['Bonjour', 'Salut', 'Hello']
-const listePhrases = ['Je suis le boss', 'Je joue à la pétanque', 'Bien joué']
-
-
 function afficherResultat(score, nbMotsProposes) {
     console.log('Votre score est de ' + score + ' sur ' + nbMotsProposes)
 }
@@ -39,5 +35,3 @@ function lancerJeu() {
     }
     afficherResultat(score, nbMotsProposes)
 }
-
-lancerJeu()
